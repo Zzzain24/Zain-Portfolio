@@ -1,31 +1,40 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { ArrowUpRight, Copy, Check } from "lucide-react"
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { ArrowUpRight, Copy, Check } from "lucide-react";
 
 const links = [
-  { label: "Email", value: "dosofisan7@gmail.com", href: "mailto:dosofisan7@gmail.com", copyable: true },
-  { label: "X", value: "@damilareoo", href: "https://x.com/damilareoo" },
-  { label: "GitHub", value: "damilareoo", href: "https://github.com/damilareoo" },
-  { label: "LinkedIn", value: "damilareoo", href: "https://linkedin.com/in/damilareoo" },
-  { label: "v0", value: "@damilareoo", href: "https://v0.app/@damilareoo" },
-  { label: "Layers", value: "damilareoo", href: "https://layers.to/damilareoo" },
-  { label: "Substack", value: "@damilareoo", href: "https://substack.com/@damilareoo" },
-  { label: "Contra", value: "damilareoo", href: "https://contra.com/damilareoo" },
-]
+  {
+    label: "Email",
+    value: "zainbharde@gmail.com",
+    href: "mailto:zainbharde@gmail.com",
+    copyable: true,
+  },
+  { label: "GitHub", value: "Zzzain24", href: "https://github.com/Zzzain24" },
+  {
+    label: "LinkedIn",
+    value: "zainbharde",
+    href: "https://www.linkedin.com/in/zainbharde/",
+  },
+  {
+    label: "Instagram",
+    value: "zainbharde",
+    href: "https://www.instagram.com/zainbharde/",
+  },
+];
 
 export function ContactSection() {
-  const [copied, setCopied] = useState(false)
-  const [showSpotifyEmbed, setShowSpotifyEmbed] = useState(false)
+  const [copied, setCopied] = useState(false);
+  const [showSpotifyEmbed, setShowSpotifyEmbed] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("dosofisan7@gmail.com")
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    navigator.clipboard.writeText("zainbharde@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-  const easing = [0.2, 0, 0.38, 0.9]
+  const easing = [0.2, 0, 0.38, 0.9];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,7 +45,7 @@ export function ContactSection() {
         delayChildren: 0.05,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0 },
@@ -47,10 +56,10 @@ export function ContactSection() {
         ease: easing,
       },
     },
-  }
+  };
 
   return (
-    <section id="across-the-web" className="py-8 pb-12 md:py-12 md:pb-16 relative">
+    <section id="contact" className="py-8 pb-12 md:py-12 md:pb-16 relative">
       <div className="px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -64,7 +73,9 @@ export function ContactSection() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-4 md:w-6 h-px bg-[#404040]" />
-              <span className="font-mono text-[#999] text-xs md:text-sm tracking-widest">elsewhere</span>
+              <span className="font-mono text-[#999] text-xs md:text-sm tracking-widest">
+                Contact
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 md:w-1.5 md:h-1.5 bg-[#404040] rounded-full" />
@@ -90,7 +101,9 @@ export function ContactSection() {
               >
                 {link.copyable ? (
                   <div className="flex items-center gap-2 md:gap-3 min-w-0">
-                    <span className="font-mono text-[#999] text-xs md:text-sm flex-shrink-0 tracking-wider">{link.label}</span>
+                    <span className="font-mono text-[#999] text-xs md:text-sm flex-shrink-0 tracking-wider">
+                      {link.label}
+                    </span>
                     <span className="text-sm md:text-base text-[#a1a1a1] truncate leading-relaxed">
                       {link.value}
                     </span>
@@ -128,5 +141,5 @@ export function ContactSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

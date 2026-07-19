@@ -18,9 +18,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [mounted, setMounted] = useState(false)
 
   const navItems = [
-    { name: "Featured", href: "#featured", id: "featured" },
-    { name: "Experiments", href: "#work", id: "work" },
-    { name: "Elsewhere", href: "#across-the-web", id: "across-the-web" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Experience", href: "#experience", id: "experience" },
+    { name: "Projects", href: "#projects", id: "projects" },
+    { name: "Contact", href: "#contact", id: "contact" },
+    { name: "Photography", href: "#photography", id: "photography" },
   ]
 
   const handleNavClick = (href: string) => {

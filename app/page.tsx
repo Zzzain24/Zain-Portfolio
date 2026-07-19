@@ -3,42 +3,34 @@
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { HeroSection } from "@/components/hero-section"
+import { AboutSection } from "@/components/about-section"
+import { ExperienceSection } from "@/components/experience-section"
 import { FeaturedProject } from "@/components/featured-project-section"
 import { WorkSection } from "@/components/work-section"
+import { PhotographySection } from "@/components/photography-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { SmoothScrollProvider, SectionTransition } from "@/components/smooth-scroll-provider"
 export default function Home() {
+  const aboutRef = useRef<HTMLElement>(null)
+  const experienceRef = useRef<HTMLElement>(null)
   const featuredRef = useRef<HTMLElement>(null)
   const workRef = useRef<HTMLElement>(null)
+  const photographyRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
   const footerRef = useRef<HTMLElement>(null)
   return (
     <SmoothScrollProvider>
+      <Navbar />
       <motion.main
         className="min-h-screen relative w-full overflow-x-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, ease: [0.2, 0, 0.38, 0.9] }}
       >
-        <Navbar />
-
-        {/* Full-width container with centered content and side lines */}
+        {/* Full-width container with centered content */}
         <div className="relative w-full">
-          {/* Left border line */}
-          <div 
-            className="absolute left-[calc(50%-300px)] sm:left-[calc(50%-350px)] md:left-[calc(50%-450px)] top-0 w-px bg-[#2a2a2a] hidden md:block pointer-events-none"
-            aria-hidden="true"
-            style={{ height: '100%' }}
-          />
-          {/* Right border line */}
-          <div 
-            className="absolute left-[calc(50%+300px)] sm:left-[calc(50%+350px)] md:left-[calc(50%+450px)] top-0 w-px bg-[#2a2a2a] hidden md:block pointer-events-none"
-            aria-hidden="true"
-            style={{ height: '100%' }}
-          />
-
           {/* Centered content container with scroll preview effect */}
           <div className="grid-container scroll-preview-container">
             <section id="hero" aria-label="Hero section" className="scroll-section">
@@ -47,21 +39,39 @@ export default function Home() {
               </SectionTransition>
             </section>
 
-            <section id="featured" ref={featuredRef} aria-label="Featured project" className="scroll-section">
-              <SectionTransition id="featured">
+            <section id="about" ref={aboutRef} aria-label="About" className="scroll-section">
+              <SectionTransition id="about">
+                <AboutSection />
+              </SectionTransition>
+            </section>
+
+            <section id="experience" ref={experienceRef} aria-label="Experience" className="scroll-section">
+              <SectionTransition id="experience">
+                <ExperienceSection />
+              </SectionTransition>
+            </section>
+
+            <section id="projects" ref={featuredRef} aria-label="Projects" className="scroll-section">
+              <SectionTransition id="projects">
                 <FeaturedProject />
               </SectionTransition>
             </section>
 
-            <section id="work" ref={workRef} aria-label="Work and experiments" className="scroll-section">
+            <section id="work" ref={workRef} aria-label="Experiments" className="scroll-section">
               <SectionTransition id="work">
                 <WorkSection />
               </SectionTransition>
             </section>
 
-            <section id="across-the-web" ref={contactRef} aria-label="Elsewhere and contact" className="scroll-section">
-              <SectionTransition id="across-the-web">
+            <section id="contact" ref={contactRef} aria-label="Contact" className="scroll-section">
+              <SectionTransition id="contact">
                 <ContactSection />
+              </SectionTransition>
+            </section>
+
+            <section id="photography" ref={photographyRef} aria-label="Photography" className="scroll-section">
+              <SectionTransition id="photography">
+                <PhotographySection />
               </SectionTransition>
             </section>
 

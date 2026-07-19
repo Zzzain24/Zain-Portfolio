@@ -1,0 +1,106 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1];
+
+const roles = [
+  {
+    company: "The Home Depot",
+    title: "Software Engineer",
+    period: "2025 — Present",
+    location: "Atlanta, GA",
+    bullets: [
+      "[ Placeholder: brief description of role and impact ]",
+      "[ Placeholder: technologies used or team context ]",
+    ],
+  },
+];
+
+export function ExperienceSection() {
+  return (
+    <section id="experience" className="py-8 md:py-12 relative">
+      <div className="px-6 md:px-8">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease }}
+          className="relative mb-8 md:mb-10"
+        >
+          <div className="h-px bg-[#2a2a2a] mb-6" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-4 md:w-6 h-px bg-[#404040]" />
+              <span className="font-mono text-[#999] text-xs md:text-sm tracking-widest">
+                Experience
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#525252] rounded-full" />
+              <div className="w-6 md:w-8 h-px bg-[#2a2a2a]" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#404040] via-[#2a2a2a] to-transparent hidden md:block" />
+
+          <div className="md:pl-6 space-y-10">
+            {roles.map((role, index) => (
+              <motion.div
+                key={role.company}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, ease, delay: index * 0.08 }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-3">
+                  <h3 className="text-lg md:text-xl font-medium text-[#fafafa]">
+                    {role.company}{" "}
+                    <span className="text-[#888] font-normal">
+                      · {role.title}
+                    </span>
+                  </h3>
+                  <span className="font-mono text-xs md:text-sm text-[#999] tracking-wide flex-shrink-0">
+                    {role.period}
+                  </span>
+                </div>
+
+                <p className="font-mono text-xs text-[#666] tracking-wide mb-4">
+                  {role.location}
+                </p>
+
+                <ul className="space-y-2">
+                  {role.bullets.map((bullet, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm md:text-base text-[#a1a1a1] leading-relaxed"
+                    >
+                      <span className="text-[#525252] mt-1.5">—</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom divider */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-10 md:mt-14 flex items-center gap-3"
+        >
+          <div className="w-1.5 h-1.5 bg-[#2a2a2a] rounded-full" />
+          <div className="w-12 md:w-16 h-px bg-[#1e1e1e]" />
+          <div className="w-1 h-1 bg-[#1e1e1e] rounded-full" />
+        </motion.div>
+      </div>
+    </section>
+  );
+}

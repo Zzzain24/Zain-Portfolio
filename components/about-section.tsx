@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export function AboutSection() {
-  const easing = [0.2, 0, 0.38, 0.9]
+  const easing = [0.2, 0, 0.38, 0.9];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -14,7 +14,7 @@ export function AboutSection() {
         delayChildren: 0.05,
       },
     },
-  }
+  };
 
   const titleVariants = {
     hidden: { opacity: 0 },
@@ -25,7 +25,7 @@ export function AboutSection() {
         ease: easing,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0 },
@@ -36,7 +36,7 @@ export function AboutSection() {
         ease: easing,
       },
     },
-  }
+  };
 
   return (
     <section id="about" className="py-8 md:py-12 relative">
@@ -53,7 +53,9 @@ export function AboutSection() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-4 md:w-6 h-px bg-[#404040]" />
-              <span className="font-mono text-[#999] text-xs md:text-sm">background</span>
+              <span className="font-mono text-[#999] text-xs md:text-sm">
+                About
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#525252] rounded-full" />
@@ -72,31 +74,23 @@ export function AboutSection() {
           <div className="space-y-8">
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                Designer and builder creating 0–1 experiences. I design products, build what makes them work, and ship them. Most recently, I've been focused on designing brands, systems, and products that feel intuitive and delightful.
+                [ Placeholder: intro paragraph about who you are and what you
+                build. ]
               </p>
             </div>
 
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                Currently at{" "}
+                Currently a Software Engineer at{" "}
                 <a
-                  href="https://chessever.com"
+                  href="https://www.homedepot.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#fafafa] underline decoration-[#a1a1a1] hover:decoration-[#fafafa] transition-colors duration-300"
                 >
-                  ChessEver
-                </a>{" "}
-                as Product Designer and{" "}
-                <a
-                  href="https://hex.inc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#fafafa] underline decoration-[#a1a1a1] hover:decoration-[#fafafa] transition-colors duration-300"
-                >
-                  Hex
-                </a>{" "}
-                as Experimental Designer.
+                  The Home Depot
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -104,18 +98,20 @@ export function AboutSection() {
           <div className="space-y-8">
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                I believe in creating work that not only looks exceptional but actually solves real problems and delivers meaningful experiences. Every detail matters—from the initial spark to the final polish.
+                [ Placeholder: what you care about — how you approach problems,
+                what drives your work. ]
               </p>
             </div>
 
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                When I'm not designing or coding, you'll find me playing basketball, exploring new music, and experimenting with playful side projects.
+                When I'm not writing code, you'll find me behind a camera,
+                tinkering with AI tools, or [ placeholder ].
               </p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
