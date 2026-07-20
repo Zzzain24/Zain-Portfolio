@@ -18,11 +18,11 @@ const siteDescription =
 export const metadata: Metadata = {
   title: "Zain Bharde",
   description: siteDescription,
-  metadataBase: new URL("https://damilareoo.xyz"),
+  metadataBase: new URL("https://zainbharde.com"),
   openGraph: {
     title: "Zain Bharde",
     description: siteDescription,
-    url: "https://damilareoo.xyz",
+    url: "https://zainbharde.com",
     siteName: "Zain Bharde",
     images: [
       {

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://damilareoo.xyz/sitemap.xml",
+    sitemap: "https://zainbharde.com/sitemap.xml",
   }
 }
