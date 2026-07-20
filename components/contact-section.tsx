@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowUpRight, Copy, Check } from "lucide-react";
+import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, Instagram } from "lucide-react";
 
 const links = [
   {
@@ -10,17 +10,25 @@ const links = [
     value: "zainbharde@gmail.com",
     href: "mailto:zainbharde@gmail.com",
     copyable: true,
+    icon: Mail,
   },
-  { label: "GitHub", value: "Zzzain24", href: "https://github.com/Zzzain24" },
+  {
+    label: "GitHub",
+    value: "Zzzain24",
+    href: "https://github.com/Zzzain24",
+    icon: Github,
+  },
   {
     label: "LinkedIn",
     value: "zainbharde",
     href: "https://www.linkedin.com/in/zainbharde/",
+    icon: Linkedin,
   },
   {
     label: "Instagram",
     value: "zainbharde",
     href: "https://www.instagram.com/zainbharde/",
+    icon: Instagram,
   },
 ];
 
@@ -101,6 +109,7 @@ export function ContactSection() {
               >
                 {link.copyable ? (
                   <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                    <link.icon className="w-4 h-4 text-[#6b6b6b] dark:text-[#999] flex-shrink-0" />
                     <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm flex-shrink-0 tracking-wider">
                       {link.label}
                     </span>
@@ -126,6 +135,7 @@ export function ContactSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 md:gap-3 w-full min-w-0"
                   >
+                    <link.icon className="w-4 h-4 text-[#6b6b6b] dark:text-[#999] group-hover:text-[#525252] dark:group-hover:text-[#a1a1a1] transition-colors duration-300 flex-shrink-0" />
                     <span className="font-mono text-[#6b6b6b] dark:text-[#999] group-hover:text-[#525252] dark:group-hover:text-[#a1a1a1] transition-colors text-xs md:text-sm flex-shrink-0 tracking-wider">
                       {link.label}
                     </span>
