@@ -14,30 +14,12 @@ export interface Collection {
 
 export const collections: Collection[] = [
   {
-    slug: "street",
-    title: "Street",
-    description: "Unscripted moments from city sidewalks.",
+    slug: "san-francisco-2026",
+    title: "San Francisco 2026",
+    description: "Shots from San Francisco, 2026.",
     photos: Array.from({ length: 8 }, (_, i) => ({
-      id: `street-${i + 1}`,
-      alt: `Street photography placeholder ${i + 1}`,
-    })),
-  },
-  {
-    slug: "travel",
-    title: "Travel",
-    description: "Places passed through, briefly.",
-    photos: Array.from({ length: 6 }, (_, i) => ({
-      id: `travel-${i + 1}`,
-      alt: `Travel photography placeholder ${i + 1}`,
-    })),
-  },
-  {
-    slug: "portraits",
-    title: "Portraits",
-    description: "Faces, light, and quiet attention.",
-    photos: Array.from({ length: 5 }, (_, i) => ({
-      id: `portraits-${i + 1}`,
-      alt: `Portrait photography placeholder ${i + 1}`,
+      id: `san-francisco-2026-${i + 1}`,
+      alt: `San Francisco 2026 photography placeholder ${i + 1}`,
     })),
   },
 ]
