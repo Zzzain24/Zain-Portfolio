@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu } from "lucide-react"
 import { useScrollContext } from "./smooth-scroll-provider"
 import { MobileMenu } from "./mobile-menu"
+import { ThemeToggle } from "./theme-toggle"
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -49,7 +50,9 @@ export function Navbar() {
         <motion.div
           style={{ paddingTop: pillPaddingY, paddingBottom: pillPaddingY, scale: pillScale }}
           className={`flex items-center justify-between md:justify-start gap-1 md:gap-2 pl-4 pr-2 md:pl-5 md:pr-2.5 rounded-full border transition-colors duration-500 ${
-            scrolled ? "bg-black/85 backdrop-blur-md border-[#2a2a2a]" : "bg-black/45 backdrop-blur-sm border-[#222]"
+            scrolled
+              ? "bg-white/85 dark:bg-black/85 backdrop-blur-md border-[#e0e0e0] dark:border-[#2a2a2a]"
+              : "bg-white/45 dark:bg-black/45 backdrop-blur-sm border-[#dcdcdc] dark:border-[#222]"
           }`}
         >
           {/* Logo */}
@@ -58,10 +61,10 @@ export function Navbar() {
             className="flex items-center gap-2 md:gap-3 group focus-visible:outline-2 outline-offset-2 outline-[#525252]"
             aria-label="Portfolio home"
           >
-            <span className="text-sm tracking-wide text-[#888] group-hover:text-[#c4c4c4] transition-colors duration-200">Home</span>
+            <span className="text-sm tracking-wide text-[#6b6b6b] dark:text-[#888] group-hover:text-[#3a3a3a] dark:group-hover:text-[#c4c4c4] transition-colors duration-200">Home</span>
           </a>
 
-          <div className="w-px h-4 bg-[#2a2a2a] mx-1 hidden md:block" />
+          <div className="w-px h-4 bg-[#e0e0e0] dark:bg-[#2a2a2a] mx-1 hidden md:block" />
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main links">
@@ -79,8 +82,7 @@ export function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className="absolute inset-0 rounded-full"
-                        style={{ background: "rgba(255,255,255,0.06)" }}
+                        className="absolute inset-0 rounded-full bg-black/[0.05] dark:bg-white/[0.06]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -90,7 +92,9 @@ export function Navbar() {
                   </AnimatePresence>
                   <span
                     className={`relative z-10 transition-colors duration-200 ${
-                      active ? "text-[#fafafa]" : "text-[#888] group-hover:text-[#c4c4c4]"
+                      active
+                        ? "text-[#0a0a0a] dark:text-[#fafafa]"
+                        : "text-[#6b6b6b] dark:text-[#888] group-hover:text-[#3a3a3a] dark:group-hover:text-[#c4c4c4]"
                     }`}
                   >
                     {item.name}
@@ -100,7 +104,7 @@ export function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-dot"
-                        className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#555]"
+                        className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#9a9a9a] dark:bg-[#555]"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0 }}
@@ -113,12 +117,14 @@ export function Navbar() {
             })}
           </nav>
 
+          {/* Theme toggle */}
+          <ThemeToggle />
+
           {/* Mobile hamburger */}
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(true)}
-              className="flex items-center justify-center w-8 h-8 rounded-full border border-[#2a2a2a] text-[#ededed]"
-              whileHover={{ borderColor: "#444", backgroundColor: "rgba(255,255,255,0.03)" }}
+              className="flex items-center justify-center w-8 h-8 rounded-full border border-[#e0e0e0] dark:border-[#2a2a2a] text-[#1a1a1a] dark:text-[#ededed] hover:border-[#c8c8c8] dark:hover:border-[#444] hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors duration-200"
               whileTap={{ scale: 0.94 }}
               transition={{ duration: 0.15 }}
               aria-label="Open menu"

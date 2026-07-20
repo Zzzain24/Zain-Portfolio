@@ -50,7 +50,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 bg-black/92 backdrop-blur-md"
+            className="fixed inset-0 bg-white/92 dark:bg-black/92 backdrop-blur-md"
             onClick={onClose}
             style={{ zIndex: 1 }}
           />
@@ -61,19 +61,18 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.38, ease }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-[280px] bg-[#080808] border-l border-[#1e1e1e] flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[280px] bg-white dark:bg-[#080808] border-l border-[#e0e0e0] dark:border-[#1e1e1e] flex flex-col"
             style={{ zIndex: 2, willChange: "transform" }}
           >
             {/* Header */}
-            <div className="flex justify-between items-center px-5 py-4 border-b border-[#1a1a1a]">
+            <div className="flex justify-between items-center px-5 py-4 border-b border-[#ececec] dark:border-[#1a1a1a]">
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-px bg-[#333]" />
-                <span className="font-mono text-[#999] text-xs tracking-widest uppercase">menu</span>
+                <div className="w-1.5 h-px bg-[#cccccc] dark:bg-[#333]" />
+                <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-widest uppercase">menu</span>
               </div>
               <motion.button
                 onClick={onClose}
-                className="w-8 h-8 flex items-center justify-center border border-[#1e1e1e] text-[#555]"
-                whileHover={{ borderColor: "#333", color: "#ededed" }}
+                className="w-8 h-8 flex items-center justify-center border border-[#e8e8e8] dark:border-[#1e1e1e] text-[#9a9a9a] dark:text-[#555] hover:border-[#cccccc] dark:hover:border-[#333] hover:text-[#1a1a1a] dark:hover:text-[#ededed] transition-colors duration-150"
                 whileTap={{ scale: 0.92 }}
                 transition={{ duration: 0.15 }}
                 aria-label="Close menu"
@@ -93,18 +92,19 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, ease, delay: 0.08 + i * 0.06 }}
-                    className="group flex items-center justify-between py-4 border-b border-[#141414]"
-                    style={{ color: active ? "#fafafa" : "#888888" }}
+                    className={`group flex items-center justify-between py-4 border-b border-[#f0f0f0] dark:border-[#141414] ${
+                      active ? "text-[#0a0a0a] dark:text-[#fafafa]" : "text-[#6b6b6b] dark:text-[#888888]"
+                    }`}
                     onClick={(e) => {
                       e.preventDefault()
                       handleNavClick(item.href)
                     }}
                   >
-                    <span className="text-xl font-medium tracking-tight transition-colors duration-200 group-hover:text-[#d1d1d1]">
+                    <span className="text-xl font-medium tracking-tight transition-colors duration-200 group-hover:text-[#3a3a3a] dark:group-hover:text-[#d1d1d1]">
                       {item.name}
                     </span>
                     {active && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#555]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#9a9a9a] dark:bg-[#555]" />
                     )}
                   </motion.a>
                 )
@@ -116,11 +116,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.3 }}
-              className="border-t border-[#1a1a1a] px-5 py-4 flex items-center gap-2"
+              className="border-t border-[#ececec] dark:border-[#1a1a1a] px-5 py-4 flex items-center gap-2"
             >
-              <div className="w-1 h-1 bg-[#2a2a2a] rounded-full" />
-              <span className="font-mono text-[#999] text-xs tracking-wider">&copy; {new Date().getFullYear()} Damilare</span>
-              <div className="flex-1 h-px bg-[#141414]" />
+              <div className="w-1 h-1 bg-[#e0e0e0] dark:bg-[#2a2a2a] rounded-full" />
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-wider">&copy; {new Date().getFullYear()} Damilare</span>
+              <div className="flex-1 h-px bg-[#f0f0f0] dark:bg-[#141414]" />
             </motion.div>
           </motion.div>
         </div>

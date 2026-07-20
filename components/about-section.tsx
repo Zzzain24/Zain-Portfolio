@@ -48,18 +48,18 @@ export function AboutSection() {
           transition={{ duration: 0.15, ease: [0.2, 0, 0.38, 0.9] }}
           className="relative mb-8 md:mb-10"
         >
-          <div className="h-px bg-[#2a2a2a] mb-6 md:mb-6" />
+          <div className="h-px bg-[#e0e0e0] dark:bg-[#2a2a2a] mb-6 md:mb-6" />
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-4 md:w-6 h-px bg-[#404040]" />
-              <span className="font-mono text-[#999] text-xs md:text-sm">
+              <div className="w-4 md:w-6 h-px bg-[#d4d4d4] dark:bg-[#404040]" />
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm">
                 About
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#525252] rounded-full" />
-              <div className="w-6 md:w-8 h-px bg-[#2a2a2a]" />
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#a8a8a8] dark:bg-[#525252] rounded-full" />
+              <div className="w-6 md:w-8 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
             </div>
           </div>
         </motion.div>
@@ -73,7 +73,7 @@ export function AboutSection() {
         >
           <div className="space-y-8">
             <div>
-              <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
+              <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
                 I'm a Texas A&M University graduate with a B.S. in Data
                 Engineering and a minor in Computer Science, based in Houston,
                 TX.
@@ -81,13 +81,13 @@ export function AboutSection() {
             </div>
 
             <div>
-              <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
+              <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
                 Currently a Software Engineer at{" "}
                 <a
                   href="https://www.homedepot.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#fafafa] underline decoration-[#a1a1a1] hover:decoration-[#fafafa] transition-colors duration-300"
+                  className="text-[#0a0a0a] dark:text-[#fafafa] underline decoration-[#525252] dark:decoration-[#a1a1a1] hover:decoration-[#0a0a0a] dark:hover:decoration-[#fafafa] transition-colors duration-300"
                 >
                   The Home Depot
                 </a>
@@ -101,7 +101,7 @@ export function AboutSection() {
 
           <div className="space-y-8">
             <div>
-              <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
+              <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
                 I have the most fun experimenting with modern AI tools like
                 Claude Code and Cursor, building projects with modern full-stack
                 frameworks, and applying these skills to solve real user
@@ -110,7 +110,7 @@ export function AboutSection() {
             </div>
 
             <div>
-              <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
+              <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
                 Outside of work, I enjoy playing basketball, traveling, and
                 photography. I currently shoot with a Fujifilm X-T30 III and
                 plan to capture more moments as I travel more in the future.

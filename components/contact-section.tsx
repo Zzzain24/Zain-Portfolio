@@ -68,18 +68,18 @@ export function ContactSection() {
           transition={{ duration: 0.15, ease: [0.2, 0, 0.38, 0.9] }}
           className="relative mb-8 md:mb-10"
         >
-          <div className="h-px bg-[#2a2a2a] mb-6 md:mb-6" />
+          <div className="h-px bg-[#e0e0e0] dark:bg-[#2a2a2a] mb-6 md:mb-6" />
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-4 md:w-6 h-px bg-[#404040]" />
-              <span className="font-mono text-[#999] text-xs md:text-sm tracking-widest">
+              <div className="w-4 md:w-6 h-px bg-[#d4d4d4] dark:bg-[#404040]" />
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm tracking-widest">
                 Contact
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 md:w-1.5 md:h-1.5 bg-[#404040] rounded-full" />
-              <div className="w-6 md:w-8 h-px bg-[#2a2a2a]" />
+              <div className="w-1.5 h-1.5 md:w-1.5 md:h-1.5 bg-[#d4d4d4] dark:bg-[#404040] rounded-full" />
+              <div className="w-6 md:w-8 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
             </div>
           </div>
         </motion.div>
@@ -91,25 +91,25 @@ export function ContactSection() {
           viewport={{ once: true, margin: "-50px" }}
           className="relative"
         >
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#404040] via-[#2a2a2a] to-transparent hidden md:block" />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#d4d4d4] dark:from-[#404040] via-[#e0e0e0] dark:via-[#2a2a2a] to-transparent hidden md:block" />
 
           <div className="md:pl-6 space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-12">
             {links.map((link) => (
               <motion.div
                 key={link.label}
-                className="group flex items-center justify-between py-3 md:py-3 border-b border-[#1a1a1a] hover:border-[#404040] transition-colors duration-300 md:pl-4"
+                className="group flex items-center justify-between py-3 md:py-3 border-b border-[#ececec] dark:border-[#1a1a1a] hover:border-[#d4d4d4] dark:hover:border-[#404040] transition-colors duration-300 md:pl-4"
               >
                 {link.copyable ? (
                   <div className="flex items-center gap-2 md:gap-3 min-w-0">
-                    <span className="font-mono text-[#999] text-xs md:text-sm flex-shrink-0 tracking-wider">
+                    <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm flex-shrink-0 tracking-wider">
                       {link.label}
                     </span>
-                    <span className="text-sm md:text-base text-[#a1a1a1] truncate leading-relaxed">
+                    <span className="text-sm md:text-base text-[#525252] dark:text-[#a1a1a1] truncate leading-relaxed">
                       {link.value}
                     </span>
                     <button
                       onClick={copyEmail}
-                      className="text-[#888888] hover:text-[#fafafa] transition-colors duration-300 flex-shrink-0"
+                      className="text-[#6b6b6b] dark:text-[#888888] hover:text-[#0a0a0a] dark:hover:text-[#fafafa] transition-colors duration-300 flex-shrink-0"
                       aria-label="Copy email"
                     >
                       {copied ? (
@@ -126,13 +126,13 @@ export function ContactSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 md:gap-3 w-full min-w-0"
                   >
-                    <span className="font-mono text-[#999] group-hover:text-[#a1a1a1] transition-colors text-xs md:text-sm flex-shrink-0 tracking-wider">
+                    <span className="font-mono text-[#6b6b6b] dark:text-[#999] group-hover:text-[#525252] dark:group-hover:text-[#a1a1a1] transition-colors text-xs md:text-sm flex-shrink-0 tracking-wider">
                       {link.label}
                     </span>
-                    <span className="text-sm md:text-base text-[#a1a1a1] group-hover:text-[#fafafa] transition-colors duration-300 truncate leading-relaxed">
+                    <span className="text-sm md:text-base text-[#525252] dark:text-[#a1a1a1] group-hover:text-[#0a0a0a] dark:group-hover:text-[#fafafa] transition-colors duration-300 truncate leading-relaxed">
                       {link.value}
                     </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#888888] group-hover:text-[#fafafa] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
+                    <ArrowUpRight className="w-4 h-4 text-[#6b6b6b] dark:text-[#888888] group-hover:text-[#0a0a0a] dark:group-hover:text-[#fafafa] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
                   </a>
                 )}
               </motion.div>

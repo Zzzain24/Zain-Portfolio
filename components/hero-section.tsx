@@ -18,7 +18,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease }}
         >
-          <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border border-[#2a2a2a]">
+          <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border border-[#e0e0e0] dark:border-[#2a2a2a]">
             <img
               src="/images/Zain_PFP.jpg"
               alt="Zain Bharde"
@@ -30,7 +30,7 @@ export const HeroSection = () => {
 
         {/* Name */}
         <motion.h1
-          className="text-2xl md:text-3xl lg:text-[2.6rem] font-medium text-[#fafafa] tracking-tight mb-7 md:mb-10 leading-tight"
+          className="text-2xl md:text-3xl lg:text-[2.6rem] font-medium text-[#0a0a0a] dark:text-[#fafafa] tracking-tight mb-7 md:mb-10 leading-tight"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
@@ -39,7 +39,7 @@ export const HeroSection = () => {
         </motion.h1>
 
         {/* Bio — word-by-word stagger */}
-        <p className="text-base md:text-lg text-[#c4c4c4] max-w-xl leading-relaxed">
+        <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] max-w-xl leading-relaxed">
           {bioWords.map((word, i) => (
             <motion.span
               key={i}
@@ -65,9 +65,9 @@ export const HeroSection = () => {
           style={{ transformOrigin: "center" }}
           className="mt-10 md:mt-14 flex items-center gap-3"
         >
-          <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-[#636363] rounded-full" />
-          <div className="w-16 md:w-24 h-px bg-[#2a2a2a]" />
-          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#3a3a3a] rounded-full" />
+          <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-[#8a8a8a] dark:bg-[#636363] rounded-full" />
+          <div className="w-16 md:w-24 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
+          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#c8c8c8] dark:bg-[#3a3a3a] rounded-full" />
         </motion.div>
 
       </div>

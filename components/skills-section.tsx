@@ -59,17 +59,17 @@ export function SkillsSection() {
           transition={{ duration: 0.4, ease }}
           className="relative mb-8 md:mb-10"
         >
-          <div className="h-px bg-[#2a2a2a] mb-6" />
+          <div className="h-px bg-[#e0e0e0] dark:bg-[#2a2a2a] mb-6" />
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-4 md:w-6 h-px bg-[#404040]" />
-              <span className="font-mono text-[#999] text-xs md:text-sm tracking-widest">
+              <div className="w-4 md:w-6 h-px bg-[#d4d4d4] dark:bg-[#404040]" />
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm tracking-widest">
                 Technical Skills
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#525252] rounded-full" />
-              <div className="w-6 md:w-8 h-px bg-[#2a2a2a]" />
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#a8a8a8] dark:bg-[#525252] rounded-full" />
+              <div className="w-6 md:w-8 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
             </div>
           </div>
         </motion.div>
@@ -84,7 +84,7 @@ export function SkillsSection() {
         >
           {skills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white border border-[#2a2a2a] hover:border-[#404040] transition-colors duration-300 flex items-center justify-center p-3.5 md:p-4">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white border border-[#e0e0e0] dark:border-[#2a2a2a] hover:border-[#c8c8c8] dark:hover:border-[#404040] transition-colors duration-300 flex items-center justify-center p-3.5 md:p-4">
                 <img
                   src={skill.icon}
                   alt={skill.name}
@@ -93,7 +93,7 @@ export function SkillsSection() {
                   loading="lazy"
                 />
               </div>
-              <span className="font-mono text-xs md:text-sm text-[#888] text-center tracking-wide leading-tight">
+              <span className="font-mono text-xs md:text-sm text-[#6b6b6b] dark:text-[#888] text-center tracking-wide leading-tight">
                 {skill.name}
               </span>
             </div>
@@ -107,9 +107,9 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="mt-10 md:mt-14 flex items-center gap-3"
         >
-          <div className="w-1.5 h-1.5 bg-[#2a2a2a] rounded-full" />
-          <div className="w-12 md:w-16 h-px bg-[#1e1e1e]" />
-          <div className="w-1 h-1 bg-[#1e1e1e] rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#e0e0e0] dark:bg-[#2a2a2a] rounded-full" />
+          <div className="w-12 md:w-16 h-px bg-[#e8e8e8] dark:bg-[#1e1e1e]" />
+          <div className="w-1 h-1 bg-[#e8e8e8] dark:bg-[#1e1e1e] rounded-full" />
         </motion.div>
       </div>
     </section>
