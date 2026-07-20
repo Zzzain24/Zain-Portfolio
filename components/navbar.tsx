@@ -73,7 +73,7 @@ export function Navbar() {
             {navItems.map((item) => {
               const active =
                 item.id === "photography"
-                  ? pathname === "/photography"
+                  ? pathname.startsWith("/photography")
                   : pathname === "/" && currentSection === item.id
               return (
                 <a

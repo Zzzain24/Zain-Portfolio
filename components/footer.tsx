@@ -14,10 +14,6 @@ export function Footer() {
       <div className="h-px bg-[#e0e0e0] dark:bg-[#2a2a2a] mb-4 sm:mb-6 md:mb-8" />
 
       <div className="flex flex-col items-center justify-center gap-6 sm:gap-8">
-        <p className="text-[#525252] dark:text-[#a1a1a1] text-xs sm:text-sm tracking-wide leading-relaxed">
-          Built with love by Zain
-        </p>
-
         <div className="flex items-center justify-center gap-2 md:gap-3">
           <div className="w-4 sm:w-6 md:w-8 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
           <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 md:w-1.5 md:h-1.5 bg-[#d4d4d4] dark:bg-[#404040] rounded-full flex-shrink-0" />

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { collections } from "@/lib/photography-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -38,5 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...collections.map((c) => ({
+      url: `https://damilareoo.xyz/photography/${c.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
   ]
 }

@@ -90,7 +90,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {navItems.map((item, i) => {
                 const active =
                   item.id === "photography"
-                    ? pathname === "/photography"
+                    ? pathname.startsWith("/photography")
                     : pathname === "/" && currentSection === item.id
                 return (
                   <motion.a
