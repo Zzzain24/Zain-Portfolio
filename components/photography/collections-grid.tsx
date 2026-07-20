@@ -13,7 +13,7 @@ export function CollectionsGrid({ collections }: { collections: Collection[] }) 
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, ease }}
-      className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-3 md:gap-4"
     >
       {collections.map((collection, i) => {
         const cover = getCoverSrc(collection)

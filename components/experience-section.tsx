@@ -99,19 +99,23 @@ export function ExperienceSection() {
                 transition={{ duration: 0.5, ease, delay: index * 0.08 }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-3">
-                  <h3 className="flex items-center gap-2.5 text-lg md:text-xl font-medium text-[#0a0a0a] dark:text-[#fafafa]">
-                    <span className="w-6 h-6 md:w-7 md:h-7 rounded-md bg-white border border-[#e0e0e0] dark:border-[#2a2a2a] flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
-                      <img
-                        src={role.logo}
-                        alt={`${role.company} logo`}
-                        className="w-full h-full object-contain"
-                        loading="lazy"
-                      />
-                    </span>
-                    {role.company}{" "}
-                    <span className="text-[#6b6b6b] dark:text-[#888] font-normal">
-                      · {role.title}
-                    </span>
+                  <h3 className="text-lg md:text-xl font-medium text-[#0a0a0a] dark:text-[#fafafa]">
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                      <span className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 md:w-7 md:h-7 rounded-md bg-white border border-[#e0e0e0] dark:border-[#2a2a2a] flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
+                          <img
+                            src={role.logo}
+                            alt={`${role.company} logo`}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                          />
+                        </span>
+                        {role.company}
+                      </span>
+                      <span className="text-[#6b6b6b] dark:text-[#888] font-normal">
+                        · {role.title}
+                      </span>
+                    </div>
                   </h3>
                   <span className="font-mono text-xs md:text-sm text-[#6b6b6b] dark:text-[#999] tracking-wide flex-shrink-0">
                     {role.period}

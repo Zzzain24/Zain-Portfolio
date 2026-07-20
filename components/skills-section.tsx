@@ -80,7 +80,7 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-30px" }}
           transition={{ duration: 0.5, ease }}
-          className="grid grid-cols-5 gap-x-6 gap-y-10 sm:gap-x-8 md:gap-x-10 max-w-2xl mx-auto justify-items-center"
+          className="grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5 sm:gap-x-8 sm:gap-y-10 md:gap-x-10 max-w-2xl mx-auto justify-items-center"
         >
           {skills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-3">
