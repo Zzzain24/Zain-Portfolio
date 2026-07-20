@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import { usePathname } from "next/navigation"
 import { useScrollContext } from "./smooth-scroll-provider"
 import { createPortal } from "react-dom"
 import { useEffect, useState } from "react"
@@ -15,20 +16,23 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { currentSection } = useScrollContext()
+  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
   const navItems = [
-    { name: "About", href: "#about", id: "about" },
-    { name: "Experience", href: "#experience", id: "experience" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Contact", href: "#contact", id: "contact" },
-    { name: "Photography", href: "#photography", id: "photography" },
+    { name: "About", href: "/#about", id: "about" },
+    { name: "Experience", href: "/#experience", id: "experience" },
+    { name: "Projects", href: "/#projects", id: "projects" },
+    { name: "Contact", href: "/#contact", id: "contact" },
+    { name: "Photography", href: "/photography", id: "photography" },
   ]
 
   const handleNavClick = (href: string) => {
     onClose()
+    if (pathname !== "/") return
+    const id = href.split("#")[1]
     setTimeout(() => {
-      const el = document.querySelector(href)
+      const el = document.getElementById(id)
       if (el) el.scrollIntoView({ behavior: "smooth" })
     }, 320)
   }
@@ -84,7 +88,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {/* Nav items — staggered */}
             <nav className="flex-1 flex flex-col px-5 pt-6 pb-4">
               {navItems.map((item, i) => {
-                const active = currentSection === item.id
+                const active =
+                  item.id === "photography"
+                    ? pathname === "/photography"
+                    : pathname === "/" && currentSection === item.id
                 return (
                   <motion.a
                     key={item.name}
@@ -96,6 +103,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       active ? "text-[#0a0a0a] dark:text-[#fafafa]" : "text-[#6b6b6b] dark:text-[#888888]"
                     }`}
                     onClick={(e) => {
+                      if (item.id === "photography") {
+                        onClose()
+                        return
+                      }
                       e.preventDefault()
                       handleNavClick(item.href)
                     }}

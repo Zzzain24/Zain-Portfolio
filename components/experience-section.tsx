@@ -7,6 +7,7 @@ const ease = [0.16, 1, 0.3, 1];
 const roles = [
   {
     company: "The Home Depot",
+    logo: "/images/home_depot.jpeg",
     title: "Software Engineer",
     period: "Jun 2026 — Present",
     location: "Atlanta, GA - Remote",
@@ -14,6 +15,7 @@ const roles = [
   },
   {
     company: "Dematic",
+    logo: "/images/dematic.svg.png",
     title: "Software Development Engineer Intern",
     period: "May 2024 — Jun 2026",
     location: "Grand Rapids, MI - Remote",
@@ -24,6 +26,7 @@ const roles = [
   },
   {
     company: "The Home Depot",
+    logo: "/images/home_depot.jpeg",
     title: "Software Engineer Intern",
     period: "May 2025 — Jul 2025",
     location: "Atlanta, GA - Remote",
@@ -35,6 +38,7 @@ const roles = [
   },
   {
     company: "Texas A&M University",
+    logo: "/images/tamu.svg.png",
     title: "Undergraduate Research Assistant",
     period: "Jan 2024 — May 2024",
     location: "College Station, TX",
@@ -44,6 +48,7 @@ const roles = [
   },
   {
     company: "CLOUDSUFI",
+    logo: "/images/cloud_sufi.jpeg",
     title: "Data Engineering Intern",
     period: "Aug 2023 — Jan 2024",
     location: "Houston, TX - Remote",
@@ -94,7 +99,15 @@ export function ExperienceSection() {
                 transition={{ duration: 0.5, ease, delay: index * 0.08 }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-3">
-                  <h3 className="text-lg md:text-xl font-medium text-[#0a0a0a] dark:text-[#fafafa]">
+                  <h3 className="flex items-center gap-2.5 text-lg md:text-xl font-medium text-[#0a0a0a] dark:text-[#fafafa]">
+                    <span className="w-6 h-6 md:w-7 md:h-7 rounded-md bg-white border border-[#e0e0e0] dark:border-[#2a2a2a] flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
+                      <img
+                        src={role.logo}
+                        alt={`${role.company} logo`}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </span>
                     {role.company}{" "}
                     <span className="text-[#6b6b6b] dark:text-[#888] font-normal">
                       · {role.title}

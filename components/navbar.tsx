@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu } from "lucide-react"
+import { usePathname } from "next/navigation"
 import { useScrollContext } from "./smooth-scroll-provider"
 import { MobileMenu } from "./mobile-menu"
 import { ThemeToggle } from "./theme-toggle"
@@ -13,13 +14,14 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { currentSection } = useScrollContext()
+  const pathname = usePathname()
 
   const navItems = [
-    { name: "About", href: "#about", id: "about" },
-    { name: "Experience", href: "#experience", id: "experience" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Contact", href: "#contact", id: "contact" },
-    { name: "Photography", href: "#photography", id: "photography" },
+    { name: "About", href: "/#about", id: "about" },
+    { name: "Experience", href: "/#experience", id: "experience" },
+    { name: "Projects", href: "/#projects", id: "projects" },
+    { name: "Contact", href: "/#contact", id: "contact" },
+    { name: "Photography", href: "/photography", id: "photography" },
   ]
 
   const { scrollY } = useScroll()
@@ -69,7 +71,10 @@ export function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main links">
             {navItems.map((item) => {
-              const active = currentSection === item.id
+              const active =
+                item.id === "photography"
+                  ? pathname === "/photography"
+                  : pathname === "/" && currentSection === item.id
               return (
                 <a
                   key={item.name}

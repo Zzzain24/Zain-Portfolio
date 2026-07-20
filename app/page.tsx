@@ -8,7 +8,6 @@ import { ExperienceSection } from "@/components/experience-section"
 import { ResumeSection } from "@/components/resume-section"
 import { SkillsSection } from "@/components/skills-section"
 import { FeaturedProject } from "@/components/featured-project-section"
-import { PhotographySection } from "@/components/photography-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -19,7 +18,6 @@ export default function Home() {
   const resumeRef = useRef<HTMLElement>(null)
   const skillsRef = useRef<HTMLElement>(null)
   const featuredRef = useRef<HTMLElement>(null)
-  const photographyRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
   const footerRef = useRef<HTMLElement>(null)
   return (
@@ -74,12 +72,6 @@ export default function Home() {
             <section id="contact" ref={contactRef} aria-label="Contact" className="scroll-section">
               <SectionTransition id="contact">
                 <ContactSection />
-              </SectionTransition>
-            </section>
-
-            <section id="photography" ref={photographyRef} aria-label="Photography" className="scroll-section">
-              <SectionTransition id="photography">
-                <PhotographySection />
               </SectionTransition>
             </section>
 

@@ -18,7 +18,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const lastRef = useRef("hero")
 
   useEffect(() => {
-    const sections = ["hero", "about", "experience", "projects", "contact", "photography"]
+    const sections = ["hero", "about", "experience", "projects", "contact"]
 
     const observer = new IntersectionObserver(
       (entries) => {
