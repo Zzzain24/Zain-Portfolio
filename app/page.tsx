@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
+import { SkillsSection } from "@/components/skills-section"
 import { FeaturedProject } from "@/components/featured-project-section"
 import { PhotographySection } from "@/components/photography-section"
 import { ContactSection } from "@/components/contact-section"
@@ -14,6 +15,7 @@ import { SmoothScrollProvider, SectionTransition } from "@/components/smooth-scr
 export default function Home() {
   const aboutRef = useRef<HTMLElement>(null)
   const experienceRef = useRef<HTMLElement>(null)
+  const skillsRef = useRef<HTMLElement>(null)
   const featuredRef = useRef<HTMLElement>(null)
   const photographyRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
@@ -46,6 +48,12 @@ export default function Home() {
             <section id="experience" ref={experienceRef} aria-label="Experience" className="scroll-section">
               <SectionTransition id="experience">
                 <ExperienceSection />
+              </SectionTransition>
+            </section>
+
+            <section id="skills" ref={skillsRef} aria-label="Technical Skills" className="scroll-section">
+              <SectionTransition id="skills">
+                <SkillsSection />
               </SectionTransition>
             </section>
 
