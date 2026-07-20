@@ -6,73 +6,78 @@ import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
-    id: "sylvan",
-    title: "Sylvan",
-    image: "/images/sylvan-featured.gif",
-    alt: "Sylvan - Revenue intelligence platform",
+    id: "aggie-ai",
+    title: "Aggie AI",
+    image: "/images/aggie_ai.png",
+    alt: "Aggie AI - RAG-based course and professor recommendation platform for Texas A&M students",
     description:
-      "Sylvan helps teams understand what actually drives revenue by making customer data simple to read. Most analytics tools bury you in reports and slow dashboards. Sylvan cuts through that.",
+      "Aggie AI is a RAG-based AI platform serving over 1,500 active users, providing natural language course recommendations for Texas A&M students based on course GPA distributions and professor reviews.",
     sections: [
       {
         title: "The Challenge",
         content:
-          "Revenue teams need to spot the small changes in customer behavior that matter. The problem is most platforms make this harder, not easier. We needed to build an identity that felt like the opposite of cluttered analytics tools.",
+          "Texas A&M students need to weigh course GPA distributions and professor reviews scattered across different sources to make informed registration decisions, with no simple way to ask questions in plain language.",
       },
       {
-        title: "What We Built",
+        title: "What I Built",
         content:
-          "We created the signal mark—a visual system that shows how customer actions create patterns over time. It shifts and adapts, kind of like how real opportunities appear in customer journeys. The mark became the core of Sylvan's identity.",
-      },
-      {
-        title: "The Approach",
-        content:
-          "Keep it simple but make it mean something. The identity had to communicate clarity without feeling cold or technical. Every piece of the system reinforces the idea that Sylvan turns noise into signal.",
-      },
-    ],
-    role: "Brand Design, Logo Design, Web Design, Visual System",
-    links: [{ text: "Website", url: "https://sylvanlabs.com" }],
-  },
-  {
-    id: "chessever",
-    title: "ChessEver",
-    image: "/images/chessever-featured.png",
-    alt: "ChessEver - Real-time chess tournament tracking",
-    description:
-      "ChessEver is a mobile app that lets you follow professional chess tournaments and players in real time. With FollowChess gone, there was no simple way to track live games, standings, and player stats in one place. We built ChessEver to bring that back.",
-    sections: [
-      {
-        title: "The Problem",
-        content:
-          "Chess fans had no intuitive way to follow live tournaments. Existing platforms were clunky, outdated, or shut down entirely. Serious players and fans needed something that felt natural. Swipe between games, pin favorites, search any player or event instantly.",
-      },
-      {
-        title: "What We Built",
-        content:
-          "We designed the entire product from zero. Clean interface. Real-time game tracking. Engine evaluation. Complete player stats and head-to-head records. Everything works exactly how you'd expect it to. No learning curve.",
-      },
-      {
-        title: "The Approach",
-        content:
-          "Every feature had to earn its place. We focused on getting the core experience right. Watching games unfold with precision, following your favorite players, curating your own feed. Simple to use, built for people who actually care about chess.",
+          "A RAG-based AI system combined with web search and a PostgreSQL backend to answer natural language questions about courses and professors. Built a Python data pipeline with automated PDF extraction and web scraping to collect and process academic data and professor reviews, integrating results into an optimized PostgreSQL database schema.",
       },
       {
         title: "The Impact",
+        content: "Serving over 1,500 active users.",
+      },
+    ],
+    role: "Full-Stack Development, Data Pipeline, RAG AI",
+    links: [{ text: "Live", url: "https://www.aggieai.us" }],
+  },
+  {
+    id: "umari",
+    title: "Umari",
+    image: "/images/umari.png",
+    alt: "Umari - web-based ordering platform for small food vendors",
+    description:
+      "Umari is a web-based ordering platform built with Next.js, Stripe, and Supabase that enables small food vendors to accept orders via shareable links or QR codes, processing 150+ transactions in production.",
+    sections: [
+      {
+        title: "The Challenge",
         content:
-          "Launched on iOS and Android. Averaging 200+ sign-ups daily since launch. Selected as Top 10 finalist in TWIST Gamma Pitch Deck Competition. Growing Discord community. We're still actively building, refining based on user feedback.",
-      },
-    ],
-    role: "0-1 Product Experience",
-    links: [
-      { text: "Website", url: "https://chessever.com" },
-      {
-        text: "iOS",
-        url: "https://apps.apple.com/us/app/chessever/id6752567269",
+          "Small food vendors need a simple, low-cost way to take orders online without adopting a heavy point-of-sale system.",
       },
       {
-        text: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.chessEver.app",
+        title: "What I Built",
+        content:
+          "A full-stack SaaS architecture with real-time order management, Stripe Connect payouts, and a responsive UI using Radix UI and Framer Motion, letting vendors accept orders through shareable links or QR codes.",
+      },
+      {
+        title: "The Impact",
+        content: "Deployed in production, processing 150+ transactions.",
       },
     ],
+    role: "Full-Stack Development, Product Design",
+    links: [{ text: "Live", url: "https://www.umari.app" }],
+  },
+  {
+    id: "moodsort",
+    title: "MoodSort",
+    image: "/images/mood_sort.png",
+    alt: "MoodSort - AI playlist curation app built with Spotify Web API",
+    description:
+      "MoodSort is a full-stack AI playlist curation app built with Next.js, Supabase, and the Spotify Web API that generates personalized playlists from a user's existing liked songs library.",
+    sections: [
+      {
+        title: "The Challenge",
+        content:
+          "Existing playlist tools don't let users describe a vibe in plain language and get a playlist built from music they already like.",
+      },
+      {
+        title: "What I Built",
+        content:
+          "A playlist curation engine that takes natural language vibe descriptions and seed songs, then pulls from a user's existing Spotify liked-songs library to generate a personalized playlist.",
+      },
+    ],
+    role: "Full-Stack Development",
+    links: [{ text: "Live", url: "https://mood-sort.vercel.app" }],
   },
 ];
 
