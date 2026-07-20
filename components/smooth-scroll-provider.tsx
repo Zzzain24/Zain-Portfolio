@@ -24,7 +24,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       (entries) => {
         let next = lastRef.current
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+          if (entry.isIntersecting) {
             const id = entry.target.id
             if (sections.includes(id)) next = id
           }
@@ -37,7 +37,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
           }, 120)
         }
       },
-      { rootMargin: "-50% 0px -50% 0px", threshold: [0.1, 0.2, 0.5] },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
     )
 
     sections.forEach((id) => {
