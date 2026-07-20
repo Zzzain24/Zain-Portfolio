@@ -19,13 +19,8 @@ export const metadata: Metadata = {
   title: "Zain Bharde",
   description: siteDescription,
   metadataBase: new URL("https://damilareoo.xyz"),
-  icons: {
-    icon: "/images/favicon.jpeg",
-    shortcut: "/images/favicon.jpeg",
-    apple: "/images/favicon.jpeg",
-  },
   openGraph: {
-    title: "Zain Bharde – Software Engineer",
+    title: "Zain Bharde",
     description: siteDescription,
     url: "https://damilareoo.xyz",
     siteName: "Zain Bharde",
@@ -43,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zain Bharde – Software Engineer",
+    title: "Zain Bharde",
     description: siteDescription,
     images: ["/images/000.png"],
   },
@@ -66,8 +61,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/images/favicon.jpeg" sizes="any" />
-
         <meta
           property="og:image"
           content="https://damilareoo.xyz/images/000.png"
@@ -100,10 +93,7 @@ export default function RootLayout({
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://damilareoo.xyz" />
-        <meta
-          property="og:title"
-          content="Zain Bharde – Software Engineer"
-        />
+        <meta property="og:title" content="Zain Bharde" />
         <meta property="og:description" content={siteDescription} />
         <meta property="og:site_name" content="Zain Bharde" />
 
