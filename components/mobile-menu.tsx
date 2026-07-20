@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { motion, AnimatePresence } from "framer-motion"
-import { X } from "lucide-react"
-import { usePathname } from "next/navigation"
-import { useScrollContext } from "./smooth-scroll-provider"
-import { createPortal } from "react-dom"
-import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useScrollContext } from "./smooth-scroll-provider";
+import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 
-const ease = [0.16, 1, 0.3, 1]
+const ease = [0.16, 1, 0.3, 1];
 
 interface MobileMenuProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const { currentSection } = useScrollContext()
-  const pathname = usePathname()
-  const [mounted, setMounted] = useState(false)
+  const { currentSection } = useScrollContext();
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
 
   const navItems = [
     { name: "About", href: "/#about", id: "about" },
@@ -25,24 +25,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { name: "Projects", href: "/#projects", id: "projects" },
     { name: "Contact", href: "/#contact", id: "contact" },
     { name: "Photography", href: "/photography", id: "photography" },
-  ]
+  ];
 
   const handleNavClick = (href: string) => {
-    onClose()
-    if (pathname !== "/") return
-    const id = href.split("#")[1]
+    onClose();
+    if (pathname !== "/") return;
+    const id = href.split("#")[1];
     setTimeout(() => {
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: "smooth" })
-    }, 320)
-  }
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 320);
+  };
 
   useEffect(() => {
-    setMounted(true)
-    return () => setMounted(false)
-  }, [])
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return createPortal(
     <AnimatePresence>
@@ -72,7 +72,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex justify-between items-center px-5 py-4 border-b border-[#ececec] dark:border-[#1a1a1a]">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-px bg-[#cccccc] dark:bg-[#333]" />
-                <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-widest uppercase">menu</span>
+                <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-widest uppercase">
+                  menu
+                </span>
               </div>
               <motion.button
                 onClick={onClose}
@@ -91,7 +93,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 const active =
                   item.id === "photography"
                     ? pathname.startsWith("/photography")
-                    : pathname === "/" && currentSection === item.id
+                    : pathname === "/" && currentSection === item.id;
                 return (
                   <motion.a
                     key={item.name}
@@ -100,15 +102,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, ease, delay: 0.08 + i * 0.06 }}
                     className={`group flex items-center justify-between py-4 border-b border-[#f0f0f0] dark:border-[#141414] ${
-                      active ? "text-[#0a0a0a] dark:text-[#fafafa]" : "text-[#6b6b6b] dark:text-[#888888]"
+                      active
+                        ? "text-[#0a0a0a] dark:text-[#fafafa]"
+                        : "text-[#6b6b6b] dark:text-[#888888]"
                     }`}
                     onClick={(e) => {
                       if (item.id === "photography") {
-                        onClose()
-                        return
+                        onClose();
+                        return;
                       }
-                      e.preventDefault()
-                      handleNavClick(item.href)
+                      e.preventDefault();
+                      handleNavClick(item.href);
                     }}
                   >
                     <span className="text-xl font-medium tracking-tight transition-colors duration-200 group-hover:text-[#3a3a3a] dark:group-hover:text-[#d1d1d1]">
@@ -118,7 +122,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       <div className="w-1.5 h-1.5 rounded-full bg-[#9a9a9a] dark:bg-[#555]" />
                     )}
                   </motion.a>
-                )
+                );
               })}
             </nav>
 
@@ -130,7 +134,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               className="border-t border-[#ececec] dark:border-[#1a1a1a] px-5 py-4 flex items-center gap-2"
             >
               <div className="w-1 h-1 bg-[#e0e0e0] dark:bg-[#2a2a2a] rounded-full" />
-              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-wider">&copy; {new Date().getFullYear()} Damilare</span>
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs tracking-wider">
+                &copy; {new Date().getFullYear()} Zain
+              </span>
               <div className="flex-1 h-px bg-[#f0f0f0] dark:bg-[#141414]" />
             </motion.div>
           </motion.div>
@@ -138,5 +144,5 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       )}
     </AnimatePresence>,
     document.body,
-  )
+  );
 }
