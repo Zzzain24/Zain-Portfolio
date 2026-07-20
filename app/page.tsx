@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { FeaturedProject } from "@/components/featured-project-section"
-import { WorkSection } from "@/components/work-section"
 import { PhotographySection } from "@/components/photography-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
@@ -16,7 +15,6 @@ export default function Home() {
   const aboutRef = useRef<HTMLElement>(null)
   const experienceRef = useRef<HTMLElement>(null)
   const featuredRef = useRef<HTMLElement>(null)
-  const workRef = useRef<HTMLElement>(null)
   const photographyRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
   const footerRef = useRef<HTMLElement>(null)
@@ -54,12 +52,6 @@ export default function Home() {
             <section id="projects" ref={featuredRef} aria-label="Projects" className="scroll-section">
               <SectionTransition id="projects">
                 <FeaturedProject />
-              </SectionTransition>
-            </section>
-
-            <section id="work" ref={workRef} aria-label="Experiments" className="scroll-section">
-              <SectionTransition id="work">
-                <WorkSection />
               </SectionTransition>
             </section>
 

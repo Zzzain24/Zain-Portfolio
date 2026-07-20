@@ -74,8 +74,9 @@ export function AboutSection() {
           <div className="space-y-8">
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                [ Placeholder: intro paragraph about who you are and what you
-                build. ]
+                I'm a Texas A&M University graduate with a B.S. in Data
+                Engineering and a minor in Computer Science, based in Houston,
+                TX.
               </p>
             </div>
 
@@ -90,7 +91,10 @@ export function AboutSection() {
                 >
                   The Home Depot
                 </a>
-                .
+                , building on the Sourcing Core team. My role focuses primarily
+                on testing and maintaining features for the Sourcing Core API,
+                which is responsible for aggregating valid sourcing paths for
+                items in Home Depot orders.
               </p>
             </div>
           </div>
@@ -98,15 +102,18 @@ export function AboutSection() {
           <div className="space-y-8">
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                [ Placeholder: what you care about — how you approach problems,
-                what drives your work. ]
+                I have the most fun experimenting with modern AI tools like
+                Claude Code and Cursor, building projects with modern full-stack
+                frameworks, and applying these skills to solve real user
+                problems.
               </p>
             </div>
 
             <div>
               <p className="text-base md:text-lg text-[#c4c4c4] leading-relaxed">
-                When I'm not writing code, you'll find me behind a camera,
-                tinkering with AI tools, or [ placeholder ].
+                Outside of work, I enjoy playing basketball, traveling, and
+                photography. I currently shoot with a Fujifilm X-T30 III and
+                plan to capture more moments as I travel more in the future.
               </p>
             </div>
           </div>

@@ -8,11 +8,47 @@ const roles = [
   {
     company: "The Home Depot",
     title: "Software Engineer",
-    period: "2025 — Present",
-    location: "Atlanta, GA",
+    period: "Jun 2026 — Present",
+    location: "Atlanta, GA - Remote",
+    bullets: ["Sourcing Core team"],
+  },
+  {
+    company: "Dematic",
+    title: "Software Development Engineer Intern",
+    period: "May 2024 — Jun 2026",
+    location: "Grand Rapids, MI - Remote",
     bullets: [
-      "[ Placeholder: brief description of role and impact ]",
-      "[ Placeholder: technologies used or team context ]",
+      "Increased autonomous robot storage selection accuracy by 25% by developing pallet storage logistics software for optimal container selection",
+      "Implemented 10+ Nocobase data interfaces enabling warehouse operators to manage device control system data, reducing manual data entry time across insert, update, and delete operations",
+    ],
+  },
+  {
+    company: "The Home Depot",
+    title: "Software Engineer Intern",
+    period: "May 2025 — Jul 2025",
+    location: "Atlanta, GA - Remote",
+    bullets: [
+      "Improved P95 API response times by 90% and cut cloud costs by 50% by migrating core sourcing service from Java to Go",
+      "Optimized system performance by reducing memory usage 35x and CPU consumption by 40% on average across load levels",
+      "Delivered project 1 week early and presented final readout to 100+ associates including executives, managers, and engineers",
+    ],
+  },
+  {
+    company: "Texas A&M University",
+    title: "Undergraduate Research Assistant",
+    period: "Jan 2024 — May 2024",
+    location: "College Station, TX",
+    bullets: [
+      "Developed a Python script achieving 1.38% error in image distortion removal and contributed to a C++ visual odometry pipeline, improving feature tracking accuracy for autonomous navigation research",
+    ],
+  },
+  {
+    company: "CLOUDSUFI",
+    title: "Data Engineering Intern",
+    period: "Aug 2023 — Jan 2024",
+    location: "Houston, TX - Remote",
+    bullets: [
+      "Explored Google Cloud Platform data engineering services including Cloud Cortex Framework for SAP and Looker, earning certifications in Google Analytics, Looker, and machine learning",
     ],
   },
 ];
@@ -51,7 +87,7 @@ export function ExperienceSection() {
           <div className="md:pl-6 space-y-10">
             {roles.map((role, index) => (
               <motion.div
-                key={role.company}
+                key={`${role.company}-${role.title}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}

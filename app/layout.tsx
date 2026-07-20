@@ -1,16 +1,22 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
-import { Analytics } from "@vercel/analytics/react"
-import { Suspense } from "react"
+import type React from "react";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { Suspense } from "react";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
+
+const siteDescription =
+  "Software Engineer at The Home Depot, passionate about building software and tinkering with AI tools.";
 
 export const metadata: Metadata = {
-  title: "Damilare Osofisan – Designer & Product Builder",
-  description: "Crafting digital experiences and building products that matter. Designer and builder focused on creating 0–1 experiences with thoughtful design.",
+  title: "Zain Bharde",
+  description: siteDescription,
   metadataBase: new URL("https://damilareoo.xyz"),
   icons: {
     icon: "/images/favicon.jpeg",
@@ -18,16 +24,16 @@ export const metadata: Metadata = {
     apple: "/images/favicon.jpeg",
   },
   openGraph: {
-    title: "Damilare Osofisan – Designer & Product Builder",
-    description: "Crafting digital experiences and building products that matter. Designer and builder focused on creating 0–1 experiences with thoughtful design.",
+    title: "Zain Bharde – Software Engineer",
+    description: siteDescription,
     url: "https://damilareoo.xyz",
-    siteName: "Damilare Osofisan",
+    siteName: "Zain Bharde",
     images: [
       {
-        url: "https://damilareoo.xyz/images/000.png",
+        url: "/images/000.png",
         width: 1200,
         height: 630,
-        alt: "Damilare Osofisan - Designer and Product Builder",
+        alt: "Zain Bharde - Software Engineer",
         type: "image/png",
       },
     ],
@@ -36,49 +42,76 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Damilare Osofisan – Designer & Product Builder",
-    description: "Crafting digital experiences and building products that matter. Designer and builder focused on creating 0–1 experiences with thoughtful design.",
-    images: ["https://damilareoo.xyz/images/000.png"],
-    creator: "@damilareoo",
+    title: "Zain Bharde – Software Engineer",
+    description: siteDescription,
+    images: ["/images/000.png"],
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
   },
-    generator: 'v0.app'
-}
+  generator: "v0.app",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`dark ${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/images/favicon.jpeg" sizes="any" />
 
-        <meta property="og:image" content="https://damilareoo.xyz/images/000.png" />
-        <meta property="og:image:url" content="https://damilareoo.xyz/images/000.png" />
-        <meta property="og:image:secure_url" content="https://damilareoo.xyz/images/000.png" />
+        <meta
+          property="og:image"
+          content="https://damilareoo.xyz/images/000.png"
+        />
+        <meta
+          property="og:image:url"
+          content="https://damilareoo.xyz/images/000.png"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://damilareoo.xyz/images/000.png"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Damilare Osofisan - Designer and builder" />
+        <meta
+          property="og:image:alt"
+          content="Zain Bharde - Software Engineer"
+        />
         <meta property="og:image:type" content="image/png" />
 
-        <meta name="twitter:image" content="https://damilareoo.xyz/images/000.png" />
-        <meta name="twitter:image:alt" content="Damilare Osofisan - Designer and builder" />
+        <meta
+          name="twitter:image"
+          content="https://damilareoo.xyz/images/000.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Zain Bharde - Software Engineer"
+        />
         <meta name="twitter:card" content="summary_large_image" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://damilareoo.xyz" />
-        <meta property="og:title" content="Damilare Osofisan – Designer & Product Builder" />
-        <meta property="og:description" content="Crafting digital experiences and building products that matter. Designer and builder focused on creating 0–1 experiences with thoughtful design." />
-        <meta property="og:site_name" content="Damilare Osofisan" />
+        <meta
+          property="og:title"
+          content="Zain Bharde – Software Engineer"
+        />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:site_name" content="Zain Bharde" />
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Damilare" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content="Zain Bharde" />
       </head>
       <body className="font-sans antialiased">
         <Suspense fallback={<div>Loading...</div>}>
@@ -87,5 +120,5 @@ export default function RootLayout({
         </Suspense>
       </body>
     </html>
-  )
+  );
 }

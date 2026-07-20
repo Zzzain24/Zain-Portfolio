@@ -71,8 +71,7 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="relative px-2.5 md:px-3 py-2 text-xs md:text-sm tracking-wide transition-colors duration-200 focus-visible:outline-2 outline-offset-2 outline-[#525252] rounded-full"
-                  style={{ color: active ? "#fafafa" : "#888888" }}
+                  className="group relative px-2.5 md:px-3 py-2 text-xs md:text-sm tracking-wide focus-visible:outline-2 outline-offset-2 outline-[#525252] rounded-full"
                   aria-current={active ? "page" : undefined}
                 >
                   {/* Sliding active indicator */}
@@ -89,7 +88,11 @@ export function Navbar() {
                       />
                     )}
                   </AnimatePresence>
-                  <span className="relative z-10 transition-colors duration-200" style={{ color: active ? "#fafafa" : undefined }}>
+                  <span
+                    className={`relative z-10 transition-colors duration-200 ${
+                      active ? "text-[#fafafa]" : "text-[#888] group-hover:text-[#c4c4c4]"
+                    }`}
+                  >
                     {item.name}
                   </span>
                   {/* Bottom dot indicator */}
