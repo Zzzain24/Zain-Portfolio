@@ -9,9 +9,9 @@ import type { Photo } from "@/lib/photography-data"
 const ease = [0.16, 1, 0.3, 1]
 
 const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
 }
 
 interface LightboxProps {
@@ -38,6 +38,11 @@ export function Lightbox({ photos, isOpen, index, onIndexChange, onClose }: Ligh
     }
   }, [isOpen])
 
+  const paginate = (dir: number) => {
+    setDirection(dir)
+    onIndexChange((index + dir + photos.length) % photos.length)
+  }
+
   useEffect(() => {
     if (!isOpen) return
     const handleKeydown = (e: KeyboardEvent) => {
@@ -50,10 +55,23 @@ export function Lightbox({ photos, isOpen, index, onIndexChange, onClose }: Ligh
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, index])
 
-  const paginate = (dir: number) => {
-    setDirection(dir)
-    onIndexChange((index + dir + photos.length) % photos.length)
-  }
+  // Preload the neighboring photos so paginating doesn't wait on a fresh network fetch mid-animation.
+  useEffect(() => {
+    if (!isOpen || photos.length <= 1) return
+    const neighbors = [index - 1, index + 1].map((i) => (i + photos.length) % photos.length)
+    const preloaded = neighbors.map((i) => {
+      const src = photos[i]?.src
+      if (!src) return null
+      const img = new window.Image()
+      img.src = src
+      return img
+    })
+    return () => {
+      preloaded.forEach((img) => {
+        if (img) img.src = ""
+      })
+    }
+  }, [isOpen, index, photos])
 
   if (!mounted) return null
 
@@ -110,7 +128,7 @@ export function Lightbox({ photos, isOpen, index, onIndexChange, onClose }: Ligh
               </>
             )}
 
-            <AnimatePresence custom={direction} mode="wait">
+            <AnimatePresence custom={direction} mode="popLayout">
               <motion.div
                 key={photo.id}
                 custom={direction}
@@ -118,7 +136,7 @@ export function Lightbox({ photos, isOpen, index, onIndexChange, onClose }: Ligh
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.35, ease }}
+                transition={{ duration: 0.3, ease }}
                 drag={photos.length > 1 ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.08}

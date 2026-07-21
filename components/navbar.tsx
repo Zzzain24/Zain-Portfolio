@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
@@ -58,13 +59,13 @@ export function Navbar() {
           }`}
         >
           {/* Logo */}
-          <a
+          <Link
             href="/"
             className="flex items-center gap-2 md:gap-3 group focus-visible:outline-2 outline-offset-2 outline-[#525252]"
             aria-label="Portfolio home"
           >
             <span className="text-sm tracking-wide text-[#6b6b6b] dark:text-[#888] group-hover:text-[#3a3a3a] dark:group-hover:text-[#c4c4c4] transition-colors duration-200">Home</span>
-          </a>
+          </Link>
 
           <div className="w-px h-4 bg-[#e0e0e0] dark:bg-[#2a2a2a] mx-1 hidden md:block" />
 

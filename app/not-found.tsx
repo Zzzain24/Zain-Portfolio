@@ -11,7 +11,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p className="mt-3 text-sm md:text-base text-[#525252] dark:text-[#a1a1a1]">
-          The page you're looking for doesn't exist.
+          The page you&rsquo;re looking for doesn&rsquo;t exist.
         </p>
         <Link
           href="/"

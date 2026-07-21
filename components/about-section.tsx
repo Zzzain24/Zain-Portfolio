@@ -74,7 +74,7 @@ export function AboutSection() {
           <div className="space-y-8">
             <div>
               <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
-                I'm a Texas A&M University graduate with a B.S. in Data
+                I&rsquo;m a Texas A&M University graduate with a B.S. in Data
                 Engineering and a minor in Computer Science, based in Houston,
                 TX.
               </p>
