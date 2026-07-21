@@ -25,7 +25,7 @@ export function PhotoGrid({
           key={photo.id}
           type="button"
           onClick={() => onSelect(i)}
-          className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#f5f5f5] dark:bg-[#0a0a0a] border border-[#ececec] dark:border-[#1a1a1a] hover:border-[#d4d4d4] dark:hover:border-[#404040] transition-colors duration-300 focus-visible:outline-2 outline-offset-2 outline-[#525252]"
+          className="group relative aspect-[3/2] overflow-hidden rounded-lg bg-[#f5f5f5] dark:bg-[#0a0a0a] border border-[#ececec] dark:border-[#1a1a1a] hover:border-[#d4d4d4] dark:hover:border-[#404040] transition-colors duration-300 focus-visible:outline-2 outline-offset-2 outline-[#525252]"
           aria-label={`Open ${photo.alt}`}
         >
           {photo.src ? (

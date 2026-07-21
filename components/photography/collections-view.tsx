@@ -3,11 +3,11 @@
 import { motion } from "framer-motion"
 import { PhotographyShell } from "./photography-shell"
 import { CollectionsGrid } from "./collections-grid"
-import { collections } from "@/lib/photography-data"
+import type { Collection } from "@/lib/photography-data"
 
 const ease = [0.16, 1, 0.3, 1]
 
-export function PhotographyCollectionsView() {
+export function PhotographyCollectionsView({ collections }: { collections: Collection[] }) {
   return (
     <PhotographyShell>
       <div className="px-6 md:px-8">

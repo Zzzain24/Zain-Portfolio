@@ -1,3 +1,5 @@
+import { list } from "@vercel/blob"
+
 export interface Photo {
   id: string
   src?: string
@@ -12,20 +14,72 @@ export interface Collection {
   photos: Photo[]
 }
 
-export const collections: Collection[] = [
+interface CollectionMeta {
+  slug: string
+  title: string
+  description?: string
+  /** Folder prefix in the Blob store, e.g. "SF2026" for zain-portfolio-images/SF2026/... */
+  blobFolder: string
+  cover?: string
+  /** Optional explicit filename order. Files not listed here are appended after, sorted naturally by filename. */
+  order?: string[]
+}
+
+export const collectionsMeta: CollectionMeta[] = [
   {
     slug: "san-francisco-2026",
     title: "San Francisco 2026",
     description: "Shots from San Francisco, 2026.",
-    photos: Array.from({ length: 8 }, (_, i) => ({
-      id: `san-francisco-2026-${i + 1}`,
-      alt: `San Francisco 2026 photography placeholder ${i + 1}`,
-    })),
+    blobFolder: "SF2026",
   },
 ]
 
-export function getCollection(slug: string): Collection | undefined {
-  return collections.find((c) => c.slug === slug)
+function sortFilenames(filenames: string[], order: string[] = []): string[] {
+  const orderIndex = new Map(order.map((f, i) => [f, i]))
+  return [...filenames].sort((a, b) => {
+    const ai = orderIndex.get(a)
+    const bi = orderIndex.get(b)
+    if (ai !== undefined && bi !== undefined) return ai - bi
+    if (ai !== undefined) return -1
+    if (bi !== undefined) return 1
+    return a.localeCompare(b, undefined, { numeric: true })
+  })
+}
+
+async function getCollectionPhotos(meta: CollectionMeta): Promise<Photo[]> {
+  const { blobs } = await list({ prefix: `${meta.blobFolder}/` })
+  const byFilename = new Map(blobs.map((b) => [b.pathname.split("/").pop()!, b.url]))
+  const orderedFilenames = sortFilenames([...byFilename.keys()], meta.order)
+
+  return orderedFilenames.map((filename, i) => ({
+    id: `${meta.slug}-${i + 1}`,
+    src: byFilename.get(filename),
+    alt: `${meta.title} photo ${i + 1}`,
+  }))
+}
+
+export async function getCollections(): Promise<Collection[]> {
+  return Promise.all(
+    collectionsMeta.map(async (meta) => ({
+      slug: meta.slug,
+      title: meta.title,
+      description: meta.description,
+      cover: meta.cover,
+      photos: await getCollectionPhotos(meta),
+    })),
+  )
+}
+
+export async function getCollection(slug: string): Promise<Collection | undefined> {
+  const meta = collectionsMeta.find((c) => c.slug === slug)
+  if (!meta) return undefined
+  return {
+    slug: meta.slug,
+    title: meta.title,
+    description: meta.description,
+    cover: meta.cover,
+    photos: await getCollectionPhotos(meta),
+  }
 }
 
 export function getCoverSrc(collection: Collection): string | undefined {

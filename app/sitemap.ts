@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { collections } from "@/lib/photography-data"
+import { collectionsMeta } from "@/lib/photography-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    ...collections.map((c) => ({
+    ...collectionsMeta.map((c) => ({
       url: `https://zainbharde.com/photography/${c.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
