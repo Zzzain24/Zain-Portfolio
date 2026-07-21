@@ -1,7 +1,5 @@
 # zainbharde.com
 
-**[zainbharde.com](https://zainbharde.com)**
-
 ## About
 
 Sections for background, work experience, projects, and contact, plus a `/photography` gallery backed by Vercel Blob — collections and photos are pulled live from Blob storage, so uploading new images doesn't require a redeploy.
