@@ -113,7 +113,7 @@ export function AboutSection() {
               <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
                 Outside of work, I enjoy playing basketball, traveling, and
                 photography. I currently shoot with a Fujifilm X-T30 III and
-                plan to capture more moments as I travel more in the future.
+                plan to capture more moments on future trips.
               </p>
             </div>
           </div>
