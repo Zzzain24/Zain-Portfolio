@@ -81,6 +81,8 @@ const projects = [
   },
 ];
 
+const slideEase = [0.4, 0, 0.2, 1];
+
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -172,7 +174,7 @@ export function FeaturedProject() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, ease: slideEase }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.08}

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import type { Photo } from "@/lib/photography-data"
 
-const ease = [0.16, 1, 0.3, 1]
+const slideEase = [0.4, 0, 0.2, 1]
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
@@ -136,7 +136,7 @@ export function Lightbox({ photos, isOpen, index, onIndexChange, onClose }: Ligh
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3, ease }}
+                transition={{ duration: 0.4, ease: slideEase }}
                 drag={photos.length > 1 ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.08}
