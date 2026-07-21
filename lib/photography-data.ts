@@ -46,9 +46,12 @@ function sortFilenames(filenames: string[], order: string[] = []): string[] {
   })
 }
 
+const IMAGE_EXTENSIONS = /\.(jpe?g|png|webp|avif|gif)$/i
+
 async function getCollectionPhotos(meta: CollectionMeta): Promise<Photo[]> {
   const { blobs } = await list({ prefix: `${meta.blobFolder}/` })
-  const byFilename = new Map(blobs.map((b) => [b.pathname.split("/").pop()!, b.url]))
+  const imageBlobs = blobs.filter((b) => IMAGE_EXTENSIONS.test(b.pathname))
+  const byFilename = new Map(imageBlobs.map((b) => [b.pathname.split("/").pop()!, b.url]))
   const orderedFilenames = sortFilenames([...byFilename.keys()], meta.order)
 
   return orderedFilenames.map((filename, i) => ({

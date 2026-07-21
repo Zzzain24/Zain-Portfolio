@@ -18,7 +18,7 @@ export function PhotographyCollectionView({ collection }: { collection: Collecti
           href="/photography"
           className="inline-flex items-center gap-2 mb-6 md:mb-8 text-xs md:text-sm font-mono text-[#6b6b6b] dark:text-[#999] hover:text-[#3a3a3a] dark:hover:text-[#c4c4c4] transition-colors duration-200"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> collections
+          <ArrowLeft className="w-3.5 h-3.5" /> Collections
         </Link>
 
         <div className="relative mb-8 md:mb-10">

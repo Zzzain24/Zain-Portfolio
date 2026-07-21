@@ -23,7 +23,7 @@ export function PhotographyCollectionsView({ collections }: { collections: Colle
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-4 md:w-6 h-px bg-[#d4d4d4] dark:bg-[#404040]" />
               <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm tracking-widest">
-                photography
+                Photography
               </span>
             </div>
             <div className="flex items-center gap-2">
