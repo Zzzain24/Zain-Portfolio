@@ -1,7 +1,5 @@
 # zainbharde.com
 
-Personal portfolio and photography site for Zain Bharde — Software Engineer at The Home Depot (Sourcing Core), Texas A&M graduate (B.S. Data Engineering, minor in Computer Science).
-
 **[zainbharde.com](https://zainbharde.com)**
 
 ## About
