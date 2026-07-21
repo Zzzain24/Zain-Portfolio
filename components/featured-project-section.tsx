@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -82,14 +82,21 @@ const projects = [
 ];
 
 const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
 };
 
 export function FeaturedProject() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    projects.forEach((p) => {
+      const img = new window.Image();
+      img.src = p.image;
+    });
+  }, []);
 
   const paginate = (dir: number) => {
     setDirection(dir);
@@ -157,7 +164,7 @@ export function FeaturedProject() {
 
         {/* Carousel */}
         <div className="overflow-hidden">
-          <AnimatePresence custom={direction} mode="wait">
+          <AnimatePresence custom={direction} mode="popLayout">
             <motion.div
               key={project.id}
               custom={direction}
@@ -165,7 +172,7 @@ export function FeaturedProject() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.08}
