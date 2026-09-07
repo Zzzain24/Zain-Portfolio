@@ -27,6 +27,12 @@ interface CollectionMeta {
 
 export const collectionsMeta: CollectionMeta[] = [
   {
+    slug: "san-diego-2026",
+    title: "San Diego 2026",
+    description: "Shots from San Diego, 2026.",
+    blobFolder: "San Diego 2026",
+  },
+  {
     slug: "san-francisco-2026",
     title: "San Francisco 2026",
     description: "Shots from San Francisco, 2026.",
