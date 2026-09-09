@@ -97,6 +97,14 @@ export function AboutSection() {
                 items in Home Depot orders.
               </p>
             </div>
+
+            <div>
+              <p className="text-base md:text-lg text-[#3a3a3a] dark:text-[#c4c4c4] leading-relaxed">
+                I&rsquo;m also currently pursuing my Master&rsquo;s in Computer
+                Science at Georgia Tech, specializing in Artificial
+                Intelligence.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-8">

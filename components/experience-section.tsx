@@ -11,7 +11,10 @@ const roles = [
     title: "Software Engineer",
     period: "Jun 2026 — Present",
     location: "Atlanta, GA - Remote",
-    bullets: ["Sourcing Core team"],
+    bullets: [
+      "Shipped 7 SLO/journey definitions to Argus, enabling 99.99% availability and sub-300ms latency monitoring for general merchandise, major appliance, and mixed-cart flows",
+      "Decommissioned 4 feature flags and ~800 lines of dead code in a Java/Quarkus service with zero regressions across 2,300+ tests",
+    ],
   },
   {
     company: "Dematic",
@@ -55,6 +58,25 @@ const roles = [
     bullets: [
       "Explored Google Cloud Platform data engineering services including Cloud Cortex Framework for SAP and Looker, earning certifications in Google Analytics, Looker, and machine learning",
     ],
+  },
+];
+
+const education = [
+  {
+    school: "Georgia Institute of Technology",
+    logo: "/images/georgia_tech.svg",
+    period: "Expected December 2028",
+    location: "Atlanta, GA",
+    bullets: [
+      "M.S. in Computer Science, Specialization in Artificial Intelligence",
+    ],
+  },
+  {
+    school: "Texas A&M University",
+    logo: "/images/tamu.svg.png",
+    period: "Aug 2022 — May 2026",
+    location: "College Station, TX",
+    bullets: ["B.S. in Data Engineering, Minor in Computer Science"],
   },
 ];
 
@@ -132,7 +154,85 @@ export function ExperienceSection() {
                       key={i}
                       className="flex items-start gap-3 text-sm md:text-base text-[#525252] dark:text-[#a1a1a1] leading-relaxed"
                     >
-                      <span className="text-[#a8a8a8] dark:text-[#525252] mt-1.5">—</span>
+                      <span className="text-[#a8a8a8] dark:text-[#525252] mt-1.5">
+                        —
+                      </span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease }}
+          className="relative mt-10 md:mt-14 mb-8 md:mb-10"
+        >
+          <div className="h-px bg-[#e0e0e0] dark:bg-[#2a2a2a] mb-6" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="w-4 md:w-6 h-px bg-[#d4d4d4] dark:bg-[#404040]" />
+              <span className="font-mono text-[#6b6b6b] dark:text-[#999] text-xs md:text-sm tracking-widest">
+                Education
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#a8a8a8] dark:bg-[#525252] rounded-full" />
+              <div className="w-6 md:w-8 h-px bg-[#e0e0e0] dark:bg-[#2a2a2a]" />
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#d4d4d4] dark:from-[#404040] via-[#e0e0e0] dark:via-[#2a2a2a] to-transparent hidden md:block" />
+
+          <div className="md:pl-6 space-y-10">
+            {education.map((edu, index) => (
+              <motion.div
+                key={edu.school}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, ease, delay: index * 0.08 }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-3">
+                  <h3 className="text-lg md:text-xl font-medium text-[#0a0a0a] dark:text-[#fafafa]">
+                    <span className="flex items-center gap-2.5">
+                      <span className="w-6 h-6 md:w-7 md:h-7 rounded-md bg-white border border-[#e0e0e0] dark:border-[#2a2a2a] flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
+                        <img
+                          src={edu.logo}
+                          alt={`${edu.school} logo`}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </span>
+                      {edu.school}
+                    </span>
+                  </h3>
+                  <span className="font-mono text-xs md:text-sm text-[#6b6b6b] dark:text-[#999] tracking-wide flex-shrink-0">
+                    {edu.period}
+                  </span>
+                </div>
+
+                <p className="font-mono text-xs text-[#8a8a8a] dark:text-[#666] tracking-wide mb-4">
+                  {edu.location}
+                </p>
+
+                <ul className="space-y-2">
+                  {edu.bullets.map((bullet, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm md:text-base text-[#525252] dark:text-[#a1a1a1] leading-relaxed"
+                    >
+                      <span className="text-[#a8a8a8] dark:text-[#525252] mt-1.5">
+                        —
+                      </span>
                       <span>{bullet}</span>
                     </li>
                   ))}

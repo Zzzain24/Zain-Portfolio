@@ -11,7 +11,7 @@ const projects = [
     image: "/images/aggie_ai.png",
     alt: "Aggie AI - RAG-based course and professor recommendation platform for Texas A&M students",
     description:
-      "Aggie AI is a RAG-based AI platform serving over 1,500 active users, providing natural language course recommendations for Texas A&M students based on course GPA distributions and professor reviews.",
+      "Aggie AI is a RAG-based AI platform serving over 2,000 active users, providing natural language course recommendations for Texas A&M students based on course GPA distributions and professor reviews.",
     sections: [
       {
         title: "The Challenge",
@@ -25,7 +25,7 @@ const projects = [
       },
       {
         title: "The Impact",
-        content: "Serving over 1,500 active users.",
+        content: "Serving over 2,000 active users.",
       },
     ],
     role: "Full-Stack Development, Data Pipeline, RAG AI",
@@ -206,7 +206,9 @@ export function FeaturedProject() {
                     </h3>
 
                     <div className="space-y-4 text-base md:text-lg leading-relaxed">
-                      <p className="text-[#3a3a3a] dark:text-[#c4c4c4]">{project.description}</p>
+                      <p className="text-[#3a3a3a] dark:text-[#c4c4c4]">
+                        {project.description}
+                      </p>
 
                       <div className="space-y-5 md:space-y-6 pt-2 text-[#525252] dark:text-[#a1a1a1]">
                         {project.sections.map((section, idx) => (

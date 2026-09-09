@@ -94,7 +94,7 @@ export function ResumeSection() {
                 <div className="pt-6 mt-6 border-t border-[#e8e8e8] dark:border-[#1e1e1e]">
                   <iframe
                     src="/resume.pdf"
-                    className="w-full aspect-[8.5/11] md:aspect-[1.4/1] rounded-lg border border-[#e0e0e0] dark:border-[#2a2a2a]"
+                    className="w-full aspect-[8.5/11] rounded-lg border border-[#e0e0e0] dark:border-[#2a2a2a]"
                     title="Resume preview"
                   />
                 </div>
